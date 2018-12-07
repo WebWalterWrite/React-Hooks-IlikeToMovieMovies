@@ -11,7 +11,8 @@ const Season = props => {
 
 	useEffect(() => {
 		(async () => {
-            const result = await getSeason(saison);
+			const result = await getSeason(saison);
+			console.log(result)
             setEpisode(result);
       
 		})();
@@ -26,17 +27,17 @@ const Season = props => {
 				<Overview>{overview}</Overview>
 
 				{episodes &&
-					episodes.map(({ name, still_path, overview, episode_number }, k) => (
+					episodes.map(({ name, still_path, episode_number }, k) => (
 						<Fragment key={k}>
-							<h2>Episode {episode_number}</h2>
+							
 							<Episode>
+							 <h1>Episode {episode_number}</h1>
 								<h2>{name}</h2>
 								<div>
 									<img
 										src={`https://image.tmdb.org/t/p/w500/${still_path}`}
 										alt="illustration épisode"
 									/>
-									<p>{overview}</p>
 								</div>
 							</Episode>
 						</Fragment>
