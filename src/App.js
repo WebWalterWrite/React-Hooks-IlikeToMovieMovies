@@ -1,28 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+// import routes
+import AllRoutes from './routes';
+
+// import components
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+
+const Layout = ({ children }) => (
+    <Fragment>
+      <Header/>  
+        <main>
+          { children }
+        </main>
+      <Footer />
+    </Fragment>
+);
+
+const MyRoute = ({path, component},k) => (
+<Route 
+  key={k} 
+  path={path} 
+  component={component}
+  exact
+/>
+);
+
+const Routes = () => (
+  <Layout>
+    <Switch>
+      { AllRoutes.map(MyRoute)}
+    </Switch>
+  </Layout>
+);
+
+const App = () => (
+  <Router>
+    <Route  path="/" component={Routes} />
+  </Router>
+);
 
 export default App;
