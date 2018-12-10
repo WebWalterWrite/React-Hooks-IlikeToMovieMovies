@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 
-import { getSeason, getImgEpisode } from "../../utils/api";
+import { getSeason } from "../../utils/api";
 
-import { Container, Overview, Episode } from "./season.styled";
+import { Container, Overview, Episode, Img } from "./season.styled";
 
 const Season = props => {
 	const saison = props.match.params.id; // id saison
@@ -22,7 +22,7 @@ const Season = props => {
 
 	return (
 		<Fragment>
-			<h1>Saisons {saison}</h1>
+			<h1>Saisons {saison }</h1>
 			<Container>
 				<Overview>{overview}</Overview>
 
@@ -32,14 +32,18 @@ const Season = props => {
 							
 							<Episode>
 							 <h1>Episode {episode_number}</h1>
-								<h2>{name}</h2>
-								<div>
+							
+								<Img>
+									<h2>{name}</h2>
 									<img
 										src={`https://image.tmdb.org/t/p/w500/${still_path}`}
 										alt="illustration épisode"
 									/>
-								</div>
+									<div><p>Découvrir</p></div>
+								</Img>
+								
 							</Episode>
+						
 						</Fragment>
 					))}
 			</Container>
