@@ -53,19 +53,19 @@ const Season = props => {
 				<Overview>{overview}</Overview>
 
 				{episodes &&
-					episodes.map(({ name, still_path, episode_number, overview }, k) => (
+					episodes.map(({ name, still_path, episode_number: ep, overview }, k) => (
 						<Fragment key={k}>
 							<Episode>
-								<h1>Episode {episode_number}</h1>
+								<h1>Episode {ep}</h1>
 
 								<Img>
 									<h2>{name}</h2>
 									<img
 										src={`https://image.tmdb.org/t/p/w500/${still_path}`}
-										alt="illustration épisode"
+										alt={`illustration épisode ${ep}: ${name}`}
 									/>
 									<div>
-									<p onClick={()=>toggleModal(saison, episode_number, overview, name)}>Découvrir</p>
+									<p onClick={()=>toggleModal(saison, ep, overview, name)}>Découvrir</p>
 									</div>
 								</Img>
 
