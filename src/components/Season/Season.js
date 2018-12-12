@@ -14,7 +14,6 @@ const Season = props => {
 	const [episode, setEpisode] = useState([]);
 	const [visible, setVisible] = useState(false);
 	const [data, setData] = useState([]);
-
 	useEffect(() => {
 		(async () => {
 			const result = await getSeason(saison);
@@ -23,15 +22,17 @@ const Season = props => {
 	}, []);
 
 
-	const toggleModal = (saison, episode_number, overview, name) => {
+	const toggleModal = (saison, episode_number, overview, name, position) => {
 		
-		const data ={
+		const ep ={
 			saison:saison,
 			episode:episode_number,
 			desc:overview,
-			name:name
+			name:name,
+			setVisible,
+			position,
 		}
-		setData(data)
+		setData(ep)
 		setVisible(true)
 		window.scrollTo({ 
 			top:0, 
@@ -65,7 +66,7 @@ const Season = props => {
 										alt={`illustration épisode ${ep}: ${name}`}
 									/>
 									<div>
-									<p onClick={()=>toggleModal(saison, ep, overview, name)}>Découvrir</p>
+									<p onClick={()=>toggleModal(saison, ep, overview, name,window.pageYOffset)}>Découvrir</p>
 									</div>
 								</Img>
 
