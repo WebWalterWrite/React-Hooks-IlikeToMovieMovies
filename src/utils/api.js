@@ -21,13 +21,17 @@ export const getAllSeasons = async () =>{
 
 export const getSeason = async (id) =>{
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${id}?api_key=${key}&language=fr-FR`);
-    console.log(result)
     return result.data;
 };
 
 
+/**
+ * @func getImgEpisode - Récupérer les images d'un épisode
+ * @param {integer} season - numero de la saison
+ * @param {integer} episod - numero épisode
+ * @param {string} key - clé api
+ */
 export const getImgEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}/images?api_key=${key}`);
-    console.log(result);
-    return result;
+    return result.data;
 }
