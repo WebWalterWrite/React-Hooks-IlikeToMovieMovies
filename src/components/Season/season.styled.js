@@ -70,6 +70,7 @@ export const Img = styled.div`
 			background-color: #228cac;
 			padding: 2px;
 			text-align: center;
+      cursor:pointer;
 		}
 
 	}
