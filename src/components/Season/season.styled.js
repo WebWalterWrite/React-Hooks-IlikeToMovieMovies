@@ -20,14 +20,23 @@ export const Container = styled.section`
 
 export const Overview = styled.p`
 	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: #000000;
+	padding:2%;
 `;
 
 export const Episode = styled.div`
 	position: relative;
 	color: #ffffff;
-	margin: 2% 0 2% 0;
   width:45%;
+	margin:2.5% 0 2.5% 0;
+	h1{
+		background-color:#FECC01;
+		color:#000000;
+		width:25%;
+		text-align:center;
+		font-weight:bold;
+		padding:1%;
+	}
 	${media.desktop`
         div{display:flex;}
     `}
@@ -42,6 +51,7 @@ export const Img = styled.div`
 	height: 100%;
   width: 100%;
   text-align: center;
+	border-top: #FECC01 solid;
   img{
     width:100%;
     height:100%;
