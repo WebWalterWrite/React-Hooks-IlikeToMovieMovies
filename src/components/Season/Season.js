@@ -22,13 +22,11 @@ const Season = props => {
 	}, []);
 
 
-	const toggleModal = (saison, episode_number, overview, name, position) => {
+	const toggleModal = (saison, episode_number, position) => {
 		
 		const ep ={
 			saison:saison,
 			episode:episode_number,
-			desc:overview,
-			name:name,
 			setVisible,
 			position,
 		}
@@ -39,7 +37,7 @@ const Season = props => {
 			behavior:"smooth"
 		})
 	}
-
+	
 	const { episodes, overview } = episode;
 	
 	return (
@@ -54,7 +52,7 @@ const Season = props => {
 				<Overview>{overview}</Overview>
 
 				{episodes &&
-					episodes.map(({ name, still_path, episode_number: ep, overview }, k) => (
+					episodes.map(({ name, still_path, episode_number: ep, overview, crew }, k) => (
 						<Fragment key={k}>
 							<Episode>
 								<h1>Episode {ep}</h1>
@@ -66,7 +64,7 @@ const Season = props => {
 										alt={`illustration épisode ${ep}: ${name}`}
 									/>
 									<div>
-									<p onClick={()=>toggleModal(saison, ep, overview, name,window.pageYOffset)}>Découvrir</p>
+									<p onClick={()=>toggleModal(saison, ep,window.pageYOffset)}>Découvrir</p>
 									</div>
 								</Img>
 
