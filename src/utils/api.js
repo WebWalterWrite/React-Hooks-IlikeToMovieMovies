@@ -33,5 +33,11 @@ export const getSeason = async (id) =>{
  */
 export const getImgEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}/images?api_key=${key}`);
-    return result.data;
+    return result.data.stills;
+}
+
+export const getEpisode = async (season, episod) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}?api_key=${key}&language=fr-FR`);
+ 
+    return result.data
 }
