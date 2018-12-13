@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, lazy, Suspense } from "react";
-
+import { Link } from 'react-router-dom';
 // Import fetch api
 import { getSeason } from "../../utils/api";
 
@@ -13,7 +13,9 @@ const Season = props => {
 
 	const [episode, setEpisode] = useState([]);
 	const [visible, setVisible] = useState(false);
+	const [scroll, setScroll] = useState(true)
 	const [data, setData] = useState([]);
+
 	useEffect(() => {
 		(async () => {
 			const result = await getSeason(saison);
@@ -28,6 +30,7 @@ const Season = props => {
 			saison:saison,
 			episode:episode_number,
 			setVisible,
+			setScroll,
 			position,
 		}
 		setData(ep)
@@ -36,10 +39,12 @@ const Season = props => {
 			top:0, 
 			behavior:"smooth"
 		})
+
+		document.body.style.overflow="fixed"
 	}
 	
 	const { episodes, overview } = episode;
-	
+
 	return (
 		<Fragment>
 			{visible && 
@@ -64,7 +69,8 @@ const Season = props => {
 										alt={`illustration épisode ${ep}: ${name}`}
 									/>
 									<div>
-									<p onClick={()=>toggleModal(saison, ep,window.pageYOffset)}>Découvrir</p>
+									{/* <p onClick={()=>toggleModal(saison, ep,window.pageYOffset)}>Découvrir</p> */}
+									<Link to={`/got/saison/${saison}/episode/${ep}/${name.replace(/\W+/g,'-').toLowerCase()}`}>Decouvrir</Link>
 									</div>
 								</Img>
 
