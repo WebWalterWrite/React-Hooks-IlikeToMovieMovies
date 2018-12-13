@@ -36,10 +36,18 @@ export const Characters = styled.div`
 `;
 
 export const CharProfile = styled.div`
-	position: relative;
+	padding:20px;
+	text-align:center;
+	img{
+		border-radius:100%;
+		width:200px;
+		height:200px;
+		${media.phone`
+			width:150px;
+			height:150px;
+		`}
+	}
 	p {
-		position: absolute;
-		bottom: 0;
         width:100%;
 		font-size: 14px;
 		background-color: rgba(0,0,0,0.5);
