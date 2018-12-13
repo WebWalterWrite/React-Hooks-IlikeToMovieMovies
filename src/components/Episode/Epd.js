@@ -54,14 +54,15 @@ const Epd = ({match}) => {
             </div>
             <p>Casting Episode</p>
             <Characters>
-                    {guest_stars && guest_stars.map(({character, profile_path},k) => (
+                    {guest_stars && guest_stars.map(({character, profile_path, name},k) => (
                     <CharProfile key={k}>
                     <img src={
                         profile_path 
                         ? `https://image.tmdb.org/t/p/w185/${profile_path}`
                         : DefaultProfile
                         } alt="" width="185" height="278"/>
-                    <p>{character}</p>
+                    <p>{name}</p>
+                    <p>Role: {character}</p>
                     </CharProfile>
                 ))}
             </Characters>
