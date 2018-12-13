@@ -75,11 +75,13 @@ export const Img = styled.div`
 		display: flex;
 		justify-content: center;
 		width: 100%;
-		p {
+		a {
 			width: 25%;
 			background-color: #228cac;
-			padding: 2px;
+			padding: 5px;
 			text-align: center;
+			text-decoration:none;
+			color:#FFFFFF;
       cursor:pointer;
 		}
 
