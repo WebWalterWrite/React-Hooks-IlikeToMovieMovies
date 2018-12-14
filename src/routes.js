@@ -2,6 +2,7 @@ import Homepage from "./components/Home/Homepage";
 import Seasons from "./components/Seasons/Seasons";
 import Season from "./components/Season/Season";
 import Epd from "./components/Episode/Epd";
+import Characters from './components/Characters/Characters';
 
 const AllRoutes = [
 	{
@@ -19,6 +20,10 @@ const AllRoutes = [
 	{
 		path: "/got/saison/:saison/episode/:episode/:name",
 		component: Epd
+	},
+	{
+		path:'/got/characters',
+		component:Characters
 	}
 ];
 
