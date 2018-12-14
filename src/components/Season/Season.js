@@ -24,25 +24,25 @@ const Season = props => {
 	}, []);
 
 
-	const toggleModal = (saison, episode_number, position) => {
+	// const toggleModal = (saison, episode_number, position) => {
 		
-		const ep ={
-			saison:saison,
-			episode:episode_number,
-			setVisible,
-			setScroll,
-			position,
-		}
-		setData(ep)
-		setVisible(true)
-		window.scrollTo({ 
-			top:0, 
-			behavior:"smooth"
-		})
+	// 	const ep ={
+	// 		saison:saison,
+	// 		episode:episode_number,
+	// 		setVisible,
+	// 		setScroll,
+	// 		position,
+	// 	}
+	// 	setData(ep)
+	// 	setVisible(true)
+	// 	window.scrollTo({ 
+	// 		top:0, 
+	// 		behavior:"smooth"
+	// 	})
 
-		document.body.style.overflow="fixed"
-	}
-	console.log(episode)
+	// 	document.body.style.overflow="fixed"
+	// }
+
 	const { episodes, overview } = episode;
 
 	return (
