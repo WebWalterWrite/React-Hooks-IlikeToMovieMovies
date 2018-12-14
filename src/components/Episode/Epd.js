@@ -7,7 +7,7 @@ import People from '../Common/People';
 import { getEpisode, getImgEpisode} from '../../utils/api';
 
 // Import style
-import { Container, Img, Characters, CharProfile } from './epd.styled'; 
+import { Container, Img} from './epd.styled'; 
 
 
 
@@ -27,7 +27,6 @@ const Epd = ({match}) => {
                 data: await getEpisode(season, episode)
             }
 
-            console.log(result.data)
             setEpisod(result)
         })();
     },[])
