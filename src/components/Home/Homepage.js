@@ -11,7 +11,7 @@ const Homepage = () => (
 					<h1><Link to="/got/seasons">saisons</Link></h1>
 				</div>
 				<div>
-					<h1><Link to="#">personnages</Link></h1>
+					<h1><Link to="/got/characters">personnages</Link></h1>
 				</div>
 		</Section>
 	
