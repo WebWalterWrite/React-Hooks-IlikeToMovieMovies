@@ -34,10 +34,30 @@ export const getSeason = async (id) =>{
 export const getImgEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}/images?api_key=${key}`);
     return result.data.stills;
-}
+};
 
+
+/**
+ * @func getEpisode - Récupérer un épisode
+ * @param {integer} season - numero de la saison
+ * @param {integer} episod - numero épisode
+ * @param {string} key - clé api
+ */
 export const getEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}?api_key=${key}&language=fr-FR`);
  
     return result.data
-}
+};
+
+/**
+ * @func getAllCharacters - Récupérer les images d'un épisode
+ * @param {string} key - clé api
+ */
+
+ export const getAllCharacters = async () => {
+     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/credits?api_key=${key}&language=fr-FR`);
+     
+     const {data:{cast = {}}} = result;
+ 
+     return cast;
+ };
