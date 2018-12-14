@@ -26,22 +26,3 @@ export const Img = styled.div`
     `}
 `;
 
-export const Characters = styled.div`
-	background-color: #000000;
-	${media.desktop`
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-    `}
-`;
-
-export const CharProfile = styled.div`
-	padding:20px;
-	text-align:center;
-	p {
-        width:100%;
-		font-size: 14px;
-		background-color: rgba(0,0,0,0.5);
-		text-align: center;
-	}
-`;
