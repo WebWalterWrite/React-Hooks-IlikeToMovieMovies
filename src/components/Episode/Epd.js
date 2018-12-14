@@ -1,13 +1,15 @@
 import React, { useEffect, useState , Suspense} from 'react'
 
+// Import component
+import People from '../Common/People';
+
 // Import fecth API
 import { getEpisode, getImgEpisode} from '../../utils/api';
 
 // Import style
 import { Container, Img, Characters, CharProfile } from './epd.styled'; 
 
-// import image
-import DefaultProfile from '../../assets/img/got.png'
+
 
 const Epd = ({match}) => {
 
@@ -53,19 +55,7 @@ const Epd = ({match}) => {
             <p>{overview}</p>
             </div>
             <p>Casting Episode</p>
-            <Characters>
-                    {guest_stars && guest_stars.map(({character, profile_path, name},k) => (
-                    <CharProfile key={k}>
-                    <img src={
-                        profile_path 
-                        ? `https://image.tmdb.org/t/p/w185/${profile_path}`
-                        : DefaultProfile
-                        } alt="" width="185" height="278"/>
-                    <p>{name}</p>
-                    <p>Role: {character}</p>
-                    </CharProfile>
-                ))}
-            </Characters>
+            <People data={guest_stars}/>    
         </Container>
         </Suspense>
     )
