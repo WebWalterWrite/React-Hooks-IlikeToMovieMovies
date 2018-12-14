@@ -9,7 +9,8 @@ const key = process.env.REACT_APP_DBMOVIES_KEY;
 
 export const getAllSeasons = async () =>{ 
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399?api_key=${key}&language=fr-FR`);
-    return result.data;
+    const { data = {} } = result;
+    return data;
 };
 
 
@@ -21,7 +22,8 @@ export const getAllSeasons = async () =>{
 
 export const getSeason = async (id) =>{
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${id}?api_key=${key}&language=fr-FR`);
-    return result.data;
+    const { data:{episodes=[], overview={}} } = result;
+    return {episodes, overview};
 };
 
 
@@ -33,7 +35,8 @@ export const getSeason = async (id) =>{
  */
 export const getImgEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}/images?api_key=${key}`);
-    return result.data.stills;
+    const {data:{stills=[]}} = result;
+    return stills;
 };
 
 
@@ -45,8 +48,8 @@ export const getImgEpisode = async (season, episod) => {
  */
 export const getEpisode = async (season, episod) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/season/${season}/episode/${episod}?api_key=${key}&language=fr-FR`);
- 
-    return result.data
+    const {data={}} = result;
+    return data
 };
 
 /**
@@ -56,8 +59,6 @@ export const getEpisode = async (season, episod) => {
 
  export const getAllCharacters = async () => {
      const result = await axios.get(`https://api.themoviedb.org/3/tv/1399/credits?api_key=${key}&language=fr-FR`);
-     
      const {data:{cast = {}}} = result;
- 
      return cast;
  };
