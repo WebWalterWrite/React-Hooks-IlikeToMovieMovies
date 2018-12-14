@@ -42,7 +42,7 @@ const Season = props => {
 
 		document.body.style.overflow="fixed"
 	}
-	
+	console.log(episode)
 	const { episodes, overview } = episode;
 
 	return (
