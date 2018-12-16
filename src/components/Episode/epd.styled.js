@@ -14,7 +14,8 @@ export const Container = styled.section`
 
 
 export const Img = styled.div`
-	overflow: scroll;
+	position:relative;
+	overflow: hidden;
 	display: flex;
 	margin: 0 auto;
 	box-shadow: 0px 0px 50px gray;
@@ -26,3 +27,12 @@ export const Img = styled.div`
     `}
 `;
 
+export const Left = styled.div`
+	position:absolute;
+	top:50%;
+	bottom:50%;
+`;
+
+export const Right =styled(Left)`
+	right:0;	
+`;
