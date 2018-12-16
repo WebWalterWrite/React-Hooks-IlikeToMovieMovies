@@ -1,5 +1,6 @@
 import React, { useEffect, useState , Suspense} from 'react'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 // Import component
 import People from '../Common/People';
 
@@ -7,7 +8,7 @@ import People from '../Common/People';
 import { getEpisode, getImgEpisode} from '../../utils/api';
 
 // Import style
-import { Container, Img} from './epd.styled'; 
+import { Container, Img, Left, Right} from './epd.styled'; 
 
 
 
@@ -38,18 +39,30 @@ const Epd = ({match}) => {
         images=[],
     } = episod;
     
+    // animation
+
+    const LeftPos = ()=>{
+        console.log('defile')
+    };
     return(
         <Suspense fallback={<div>Loading...</div>}>
         <Container>
             <div>
             <h1>{name}</h1>
             <Img>
+                <Left>
+                <FontAwesomeIcon onClick={LeftPos} icon={faChevronLeft} size="3x" />
+                </Left>
                 {images.map(({file_path}, k)=>(
                     <img 
+                        
                         key={k} src={`https://image.tmdb.org/t/p/w500/${file_path}`} 
                         alt={`illustration de l'épisode "${name}"`}
                     />
                 ))}
+                <Right>
+                <FontAwesomeIcon icon={faChevronRight} size="3x" />
+                </Right>
             </Img>
             <p>{overview}</p>
             </div>
