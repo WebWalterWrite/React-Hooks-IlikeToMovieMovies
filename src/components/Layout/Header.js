@@ -5,7 +5,7 @@ import {H1} from './layout.styled';
 const Header = () => (
   <header>
     <H1>
-      <Link to="/">Oh my GOT</Link>
+      <Link to="/">OH MY GOT</Link>
     </H1>
   </header>
 );
