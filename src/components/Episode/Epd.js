@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 // Import component
 import People from "../Common/People";
 
@@ -9,18 +10,20 @@ import { getEpisode, getImgEpisode } from "../../utils/api";
 // Import style
 import { Container, Img, Icon, Svg } from "./epd.styled";
 
-const Epd = ({ match }) => {
-   
+const Epd = ({ match,location}) => {
+    console.log(match,location)
+    const season = match.params.saison;
+
 	// Récuprer paramètres URl
-	const season = match.params.saison;
+	const num = match.params.saison;
 	const episode = match.params.episode;
 
 	// Données
-    const [episod, setEpisod] = useState([]);
+	const [episod, setEpisod] = useState([]);
 	const [pos, setPos] = useState(0); // Position des photos
 	const [index, setIndex] = useState(1); // index compteur photos et visibilité icon
-    
-    // Récupérer les données API
+
+	// Récupérer les données API
 	useEffect(() => {
 		(async () => {
 			const result = {
@@ -38,73 +41,60 @@ const Epd = ({ match }) => {
 		images = []
 	} = episod;
 
-    /*
+	/*
      caroussel photos
      moveleft = defilement vers la gauche
      moveright = defilement vers la droite
     */
 	const moveLeft = () => {
-        console.log(pos)
-        if(index > 1)  
-        return (
-            setIndex(index -1),
-            setPos(pos + 500)
-        )
+		if (index > 1) return (setIndex(index - 1), setPos(pos + 500));
 	};
 	const moveRight = () => {
-        console.log(pos)
-        if(index < images.length)
-        return(
-            setIndex(index + 1),
-            setPos(pos -500)
-        )
+		if (index < images.length) return (setIndex(index + 1), setPos(pos - 500));
 	};
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<Container>
-				<h1>{name}</h1>
-				<Img slide={pos} >
-					{images.map(({ file_path }, k) => (
-                       
-						<img
-							key={k}
-							src={`https://image.tmdb.org/t/p/w500/${file_path}`}
-							alt={`illustration de l'épisode "${name}"`}
-						/>
-					))}
-				</Img>
+	<Suspense fallback={<div>Loading...</div>}>
+		<Container>
+            <div>
+            <Link to={location.state}>Retour saison {num}</Link>
+            </div>
+			<h1>{name}</h1>
+			<Img slide={pos}>
+				{images.map(({ file_path }, k) => (
+				<img
+					key={k}
+					src={`https://image.tmdb.org/t/p/w500/${file_path}`}
+					alt={`illustration de l'épisode "${name}"`}
+				/>
+				))}
+			</Img>
 
-				<Icon>
-                    <div>
-                        <Svg 
-                        onClick={moveLeft} 
-                        icon={faChevronLeft} 
-                        size="2x"
-                        visible={index === 1 ? 'hidden' : 'visible'}  
-                        />
-                    
-                    </div>
-					<span>
-						{index}/{images.length}
-					</span>
-                    <div>
-					    <Svg
+			<Icon>
+				<div>
+					<Svg
+						onClick={moveLeft}
+						icon={faChevronLeft}
+						size="2x"
+						visible={index === 1 ? "hidden" : "visible"}
+					/>
+				</div>
+				<span>{index}/{images.length}</span>
+				<div>
+					<Svg
 						onClick={moveRight}
 						icon={faChevronRight}
-                        size="2x"
-                        visible={index === images.length ? 'hidden' : 'visible'}
-					    />
-                    </div>
-				</Icon>
-				    <p>{overview}</p>
-				    <p>Casting Episode</p>
-				<People data={guest_stars} />
-			</Container>
-		</Suspense>
+						size="2x"
+						visible={index === images.length ? "hidden" : "visible"}
+					/>
+				</div>
+			</Icon>
+			<p>{overview}</p>
+			<p>Casting Episode</p>
+			<People data={guest_stars} />
+		</Container>
+	</Suspense>
 	);
 };
-
-
 
 export default Epd;
