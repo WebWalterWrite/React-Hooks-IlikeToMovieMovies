@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect, lazy, Suspense } from "react";
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 // Import fetch api
 import { getSeason } from "../../utils/api";
 
@@ -7,10 +8,9 @@ import { Container, Overview, Episode, Img } from "./season.styled";
 
 // Import lazy component
 const LazyEpisode = lazy( ()=> import("../Episode/Episode"));
-
 const Season = props => {
+	
 	const saison = props.match.params.id; // id saison
-
 	const [episode, setEpisode] = useState([]);
 	const [visible, setVisible] = useState(false);
 	const [scroll, setScroll] = useState(true)
@@ -70,7 +70,10 @@ const Season = props => {
 									/>
 									<div>
 									{/* <p onClick={()=>toggleModal(saison, ep,window.pageYOffset)}>Découvrir</p> */}
-									<Link to={`/got/saison/${saison}/episode/${ep}/${name.replace(/\W+/g,'-').toLowerCase()}`}>Decouvrir</Link>
+									<Link to={{
+										pathname:`/got/saison/${saison}/episode/${ep}/${name.replace(/\W+/g,'-').toLowerCase()}`,
+										state:props.location.pathname
+										}}>Decouvrir</Link>
 									</div>
 								</Img>
 
