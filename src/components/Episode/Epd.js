@@ -1,76 +1,110 @@
-import React, { useEffect, useState , Suspense} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState, Suspense } from "react";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 // Import component
-import People from '../Common/People';
+import People from "../Common/People";
 
 // Import fecth API
-import { getEpisode, getImgEpisode} from '../../utils/api';
+import { getEpisode, getImgEpisode } from "../../utils/api";
 
 // Import style
-import { Container, Img, Left, Right} from './epd.styled'; 
+import { Container, Img, Icon, Svg } from "./epd.styled";
 
+const Epd = ({ match }) => {
+   
+	// Récuprer paramètres URl
+	const season = match.params.saison;
+	const episode = match.params.episode;
 
-
-const Epd = ({match}) => {
-
-    // Récuprer paramètres URl
-    const season = match.params.saison;
-    const episode = match.params.episode;
-
-    // Données
-    const  [episod, setEpisod] = useState([]);
-
-    useEffect( ()=>{
-        (async ()=>{
-            const result = {
-                images: await getImgEpisode(season, episode),
-                data: await getEpisode(season, episode)
-            }
-
-            setEpisod(result)
-        })();
-    },[])
+	// Données
+    const [episod, setEpisod] = useState([]);
+	const [pos, setPos] = useState(0); // Position des photos
+	const [index, setIndex] = useState(1); // index compteur photos et visibilité icon
     
-    // Desctruring des données 
-    const {
-        data:{name, overview} = {},
-        data:{guest_stars} = [],
-        images=[],
-    } = episod;
-    
-    // animation
+    // Récupérer les données API
+	useEffect(() => {
+		(async () => {
+			const result = {
+				images: await getImgEpisode(season, episode),
+				data: await getEpisode(season, episode)
+			};
+			setEpisod(result);
+		})();
+	}, []);
 
-    const LeftPos = ()=>{
-        console.log('defile')
-    };
-    return(
-        <Suspense fallback={<div>Loading...</div>}>
-        <Container>
-            <div>
-            <h1>{name}</h1>
-            <Img>
-                <Left>
-                <FontAwesomeIcon onClick={LeftPos} icon={faChevronLeft} size="3x" />
-                </Left>
-                {images.map(({file_path}, k)=>(
-                    <img 
-                        
-                        key={k} src={`https://image.tmdb.org/t/p/w500/${file_path}`} 
-                        alt={`illustration de l'épisode "${name}"`}
-                    />
-                ))}
-                <Right>
-                <FontAwesomeIcon icon={faChevronRight} size="3x" />
-                </Right>
-            </Img>
-            <p>{overview}</p>
-            </div>
-            <p>Casting Episode</p>
-            <People data={guest_stars}/>    
-        </Container>
-        </Suspense>
-    )
-}
+	// Desctruring des données
+	const {
+		data: { name, overview } = {},
+		data: { guest_stars } = [],
+		images = []
+	} = episod;
+
+    /*
+     caroussel photos
+     moveleft = defilement vers la gauche
+     moveright = defilement vers la droite
+    */
+	const moveLeft = () => {
+        console.log(pos)
+        if(index > 1)  
+        return (
+            setIndex(index -1),
+            setPos(pos + 500)
+        )
+	};
+	const moveRight = () => {
+        console.log(pos)
+        if(index < images.length)
+        return(
+            setIndex(index + 1),
+            setPos(pos -500)
+        )
+	};
+
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<Container>
+				<h1>{name}</h1>
+				<Img slide={pos} >
+					{images.map(({ file_path }, k) => (
+                       
+						<img
+							key={k}
+							src={`https://image.tmdb.org/t/p/w500/${file_path}`}
+							alt={`illustration de l'épisode "${name}"`}
+						/>
+					))}
+				</Img>
+
+				<Icon>
+                    <div>
+                        <Svg 
+                        onClick={moveLeft} 
+                        icon={faChevronLeft} 
+                        size="2x"
+                        visible={index === 1 ? 'hidden' : 'visible'}  
+                        />
+                    
+                    </div>
+					<span>
+						{index}/{images.length}
+					</span>
+                    <div>
+					    <Svg
+						onClick={moveRight}
+						icon={faChevronRight}
+                        size="2x"
+                        visible={index === images.length ? 'hidden' : 'visible'}
+					    />
+                    </div>
+				</Icon>
+				    <p>{overview}</p>
+				    <p>Casting Episode</p>
+				<People data={guest_stars} />
+			</Container>
+		</Suspense>
+	);
+};
+
+
 
 export default Epd;
