@@ -22,8 +22,23 @@ const CharProfile = styled.div`
     font-size: 14px;
     background-color: rgba(0, 0, 0, 0.5);
     color:#FFFFFF;
-    text-align: center;
+    text-align: center !important;
   }
+  img{
+	border-bottom:2px  #FECC01 solid;
+  }
+`;
+
+const Role =styled.div`
+    display:block;
+    
+    p{  
+        margin:0 auto;
+        width:30%;
+        padding:2%;
+        background-color:#FECC01 !important;
+        font-weight:bold;
+    }
 `;
 
 const People = ({data}) => (
@@ -36,7 +51,7 @@ const People = ({data}) => (
                         : DefaultProfile
                 } alt="" width="185" height="278" />
                 <p>{name}</p>
-                <p>Role: {character}</p>
+                <Role><p>Role</p><span>{character}</span></Role>
             </CharProfile>
         ))}
     </Characters>
