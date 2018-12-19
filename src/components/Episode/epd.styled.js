@@ -14,16 +14,20 @@ export const Container = styled.section`
 		padding: 10px;
 		background-color: #000000;
 	}
-	>div{
+	div:nth-child(1){
+
 		text-decoration:none;
 		color:#FFFFFF;
 		padding:20px 0px 20px 0px;
-
 		a{
 			background-color:#228cac;
 			text-decoration:none;
 			color:#FFFFFF;
 			padding:6px;
+			font-family: 'Cormorant Garamond', serif;
+			svg{
+				margin-right:.3em;
+			}	
 		}
 	}
 `;
