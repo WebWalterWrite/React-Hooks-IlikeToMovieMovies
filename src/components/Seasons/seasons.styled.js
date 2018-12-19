@@ -3,6 +3,11 @@ import media from '../../utils/responsive';
 
 export const Container = styled.section`
      margin-top:10%;
+     h2{
+         color:#FECC01;
+         letter-spacing:.3em;
+         font-size:2.5em;
+     }
     ${media.desktop`
         display:flex;
         flex-wrap:wrap;
@@ -12,8 +17,10 @@ export const Container = styled.section`
     `}  
     ${media.phone`
         display:block;
+        
         div{
-            width:100%;
+            margin:0 auto;
+            width:80%;
         }
     `}
     div{
