@@ -18,7 +18,29 @@ export const Container = styled.section`
 	}
 `;
 
-export const Overview = styled.p`
+export const Overview = styled.div`
+	>div{
+		background-color:#FECC01;
+		color:#000000;
+		text-align:center;
+		width:15%;
+		padding:0;
+		h1{
+			font-size:1.5em;
+		}
+		${media.phone`
+			width:25%;
+		`}
+		>p{
+			font-size:10px;
+			padding:0;
+			letter-spacing:.8em;
+			text-align:justify;
+			${media.phone`
+			letter-spacing:.2em;
+			`}
+		}
+	}
 	color: #ffffff;
 	background-color: #000000;
 	padding:2%;
@@ -60,6 +82,7 @@ export const Img = styled.div`
     width:100%;
   `}
 	> h2 {
+		font-family: 'Cinzel', serif;
 		text-align: center;
 		position: absolute;
 		display: flex;
@@ -68,6 +91,9 @@ export const Img = styled.div`
 		height: 100%;
 		width: 100%;
 		background-color: rgba(0, 0, 0, 0.3);
+		${media.phone`
+			font-size:2em;
+		`}
 	}
 	div {
 		position: absolute;
@@ -76,13 +102,23 @@ export const Img = styled.div`
 		justify-content: center;
 		width: 100%;
 		a {
-			width: 25%;
+			width:25%;
 			background-color: #228cac;
-			padding: 5px;
+			padding: 8px;
+			letter-spacing:.3em;
 			text-align: center;
 			text-decoration:none;
 			color:#FFFFFF;
       cursor:pointer;
+			:hover{
+				border-bottom:#FFFFFF 2px solid;
+				padding: 6px;
+			}
+			${media.phone`
+			width:30%;
+			font-size:1.5em;
+
+			`}
 		}
 
 	}
