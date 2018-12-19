@@ -7,15 +7,13 @@ import DefaultProfile from '../../assets/img/got.png'
 
 const Characters = styled.div`
   background-color: #000000;
-  ${media.desktop`
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-    `}
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
 `;
 
 const CharProfile = styled.div`
-  padding: 20px;
+  padding: 10px !important;
   text-align: center;
   p {
     width: 100%;
@@ -25,13 +23,16 @@ const CharProfile = styled.div`
     text-align: center !important;
   }
   img{
-	border-bottom:2px  #FECC01 solid;
+    width:100%;
+	border-bottom:2px #FECC01 solid;
   }
+  ${media.phone`
+    width:50%;
+  `}
 `;
 
 const Role =styled.div`
     display:block;
-    
     p{  
         margin:0 auto;
         width:30%;
