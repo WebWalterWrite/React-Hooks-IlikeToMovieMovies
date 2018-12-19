@@ -1,6 +1,7 @@
-import React, { useEffect, useState, Suspense } from "react";
-import { faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import React, { Fragment, useEffect, useState,lazy, Suspense } from "react";
+import { faChevronLeft, faChevronRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
+
 // Import component
 import People from "../Common/People";
 
@@ -9,9 +10,13 @@ import { getEpisode, getImgEpisode } from "../../utils/api";
 
 // Import style
 import { Container, Img, Icon, Svg } from "./epd.styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+const LazyLoader = lazy(()=> import('../../utils/loader'));
 
 const Epd = ({ match,location}) => {
-    console.log(match,location)
+    const prevUrl = location.state;
     const season = match.params.saison;
 
 	// Récuprer paramètres URl
@@ -54,10 +59,13 @@ const Epd = ({ match,location}) => {
 	};
 
 	return (
-	<Suspense fallback={<div>Loading...</div>}>
+	<Suspense fallback={<LazyLoader/>}>
 		<Container>
             <div>
-            <Link to={location.state}>Retour saison {num}</Link>
+            	<Link to={prevUrl}>
+				<FontAwesomeIcon icon={faArrowLeft} size="1x"/>
+			 	 <span>Saison {num}</span>
+				</Link>
             </div>
 			<h1>{name}</h1>
 			<Img slide={pos}>
@@ -90,11 +98,13 @@ const Epd = ({ match,location}) => {
 				</div>
 			</Icon>
 			<p>{overview}</p>
+			<Suspense fallback='...loading'>
 			<p>Casting Episode</p>
 			<People data={guest_stars} />
+			</Suspense>
 		</Container>
 	</Suspense>
-	);
+	)	
 };
 
 export default Epd;
