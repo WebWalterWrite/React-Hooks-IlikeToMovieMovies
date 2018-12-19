@@ -1,10 +1,12 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, lazy } from 'react';
 import { Link } from 'react-router-dom'
 // Import api
 import { getAllSeasons } from "../../utils/api";
 
 // Import styles
 import { Container } from './seasons.styled';
+
+import Loader from '../../utils/loader';
 
 const Seasons = () => {
 
@@ -20,12 +22,13 @@ const Seasons = () => {
             })();
         },[]
         )
-
+   
     const saisons = seasons.filter(elem => elem.name !== 'Specials')
+
     return(
-        <Fragment>
-        <h1>Saisons</h1>
-        <Container>
+        <div>
+
+        {saisons.length !== 0 ? <Container>
         {saisons.map(({poster_path, name, season_number},k) =>(
             <div key={k}>
             <h2>{name}</h2>
@@ -35,7 +38,8 @@ const Seasons = () => {
             )
        )}   
        </Container>
-       </Fragment>
+       : <Loader/>}
+       </div>
     )
 }
 
