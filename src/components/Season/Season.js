@@ -48,7 +48,8 @@ const Season = props => {
 								alt={`illustration épisode ${ep}: ${name}`}
 							/>
 						<div>
-							<Link to={{ pathname:`/got/saison/${saison}/episode/${ep}/${name
+						<Link to={{ 
+							pathname:`/got/saison/${saison}/episode/${ep}/${name
 												.replace(/\W+/g, "-")
 												.toLowerCase()}`,
 												state: props.location.pathname
