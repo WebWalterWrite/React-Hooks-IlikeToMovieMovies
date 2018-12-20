@@ -9,14 +9,6 @@ import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 
 
-const Styles = {
-  backgroundColor:'red',
-  position:'fixed',
-  bottom:10,
-  right:5,
-  zIndex:99999,
-  transition:'all .5s ease-in-out'
-}
 const Layout = ({ children }) => {
     return (
     <Fragment>
