@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState,lazy, Suspense } from "react";
+import React, { useEffect, useState} from "react";
 import { faChevronLeft, faChevronRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,6 @@ import { Container, Img, Icon, Svg } from "./epd.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const LazyLoader = lazy(()=> import('../../utils/loader'));
 
 const Epd = ({ match,location}) => {
     const prevUrl = location.state;
@@ -59,7 +58,6 @@ const Epd = ({ match,location}) => {
 	};
 
 	return (
-	<Suspense fallback={<LazyLoader/>}>
 		<Container>
             <div>
             	<Link to={prevUrl}>
@@ -98,12 +96,9 @@ const Epd = ({ match,location}) => {
 				</div>
 			</Icon>
 			<p>{overview}</p>
-			<Suspense fallback='...loading'>
 			<p>Casting Episode</p>
 			<People data={guest_stars} />
-			</Suspense>
 		</Container>
-	</Suspense>
 	)	
 };
 
