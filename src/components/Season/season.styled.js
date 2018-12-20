@@ -35,7 +35,7 @@ export const Overview = styled.div`
 			font-size:10px;
 			padding:0;
 			letter-spacing:.8em;
-			text-align:justify;
+			text-align:center;
 			${media.phone`
 			letter-spacing:.2em;
 			`}

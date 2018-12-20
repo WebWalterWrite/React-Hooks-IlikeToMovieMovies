@@ -38,7 +38,7 @@ const Season = props => {
 
 				{episodes &&
 				episodes.map(
-				({ name, still_path, episode_number: ep, overview, crew }, k) => (
+				({ name, still_path, episode_number: ep }, k) => (
 					<Fragment key={k}>
 						<Episode>
 						<h1>Episode {ep}</h1>

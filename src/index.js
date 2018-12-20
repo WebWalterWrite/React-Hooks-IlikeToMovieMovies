@@ -7,10 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import backgroundgot from './assets/img/backgroundgot.jpg';
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: 'Game of Thrones';
-        src: url('gameofthones.woff') format('woff');
-    }
 
     *{
         padding:0;
@@ -19,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
     }
     header{
         padding:2vh;
-        background-color:rgba(0,0,0,0.5);
     }
     html, body{
         height:100%;
@@ -28,10 +23,12 @@ const GlobalStyle = createGlobalStyle`
         background-size:cover;
         background-attachment:fixed;
         background-position:center;
+        scroll-behavior: smooth;
     }
-    h1{
-        font-family:'game of thrones';
+    h1, h2{
+        font-family: 'Cormorant Garamond', serif;
     }
+ 
     p{
         font-size:1.5em;
         line-height:1.5;
@@ -41,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
 <Fragment>
 <GlobalStyle/>
-<App />
+<App  />
 </Fragment>
 , document.getElementById('root'));
 
