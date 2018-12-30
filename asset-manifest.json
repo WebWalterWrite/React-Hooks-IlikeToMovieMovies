@@ -1,13 +1,13 @@
 {
-  "main.js": "/got/homepage/static/js/main.097f0c0b.chunk.js",
-  "main.js.map": "/got/homepage/static/js/main.097f0c0b.chunk.js.map",
-  "static/js/1.45acb220.chunk.js": "/got/homepage/static/js/1.45acb220.chunk.js",
-  "static/js/1.45acb220.chunk.js.map": "/got/homepage/static/js/1.45acb220.chunk.js.map",
-  "runtime~main.js": "/got/homepage/static/js/runtime~main.d84d6a9c.js",
-  "runtime~main.js.map": "/got/homepage/static/js/runtime~main.d84d6a9c.js.map",
-  "static/media/got.png": "/got/homepage/static/media/got.a3996a4a.png",
-  "static/media/backgroundgot.jpg": "/got/homepage/static/media/backgroundgot.79d6bb2c.jpg",
-  "index.html": "/got/homepage/index.html",
-  "precache-manifest.fbf32fdc7f97bf5c8089335cd56bea23.js": "/got/homepage/precache-manifest.fbf32fdc7f97bf5c8089335cd56bea23.js",
-  "service-worker.js": "/got/homepage/service-worker.js"
+  "main.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/main.8d64bee2.chunk.js",
+  "main.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/main.8d64bee2.chunk.js.map",
+  "static/js/1.81d1dc49.chunk.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/1.81d1dc49.chunk.js",
+  "static/js/1.81d1dc49.chunk.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/1.81d1dc49.chunk.js.map",
+  "runtime~main.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/runtime~main.860a5583.js",
+  "runtime~main.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/runtime~main.860a5583.js.map",
+  "static/media/got.png": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/media/got.a3996a4a.png",
+  "static/media/backgroundgot.jpg": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/media/backgroundgot.79d6bb2c.jpg",
+  "index.html": "/React-Hooks-IlikeToMovieMovies/got/homepage/index.html",
+  "precache-manifest.ece825658d7c9f59d81fb9c2b7524b6e.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/precache-manifest.ece825658d7c9f59d81fb9c2b7524b6e.js",
+  "service-worker.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/service-worker.js"
 }
