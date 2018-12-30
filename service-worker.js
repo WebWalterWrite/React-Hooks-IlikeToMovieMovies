@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/React-Hooks-IlikeToMovieMovies/got/homepage/precache-manifest.ece825658d7c9f59d81fb9c2b7524b6e.js"
+  "/React-Hooks-IlikeToMovieMovies/precache-manifest.8c7dfdc565bcd89ba228ddcb6813a8e2.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/React-Hooks-IlikeToMovieMovies/got/homepage/index.html", {
+workbox.routing.registerNavigationRoute("/React-Hooks-IlikeToMovieMovies/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

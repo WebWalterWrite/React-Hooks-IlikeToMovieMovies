@@ -1,13 +1,13 @@
 {
-  "main.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/main.8d64bee2.chunk.js",
-  "main.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/main.8d64bee2.chunk.js.map",
-  "static/js/1.81d1dc49.chunk.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/1.81d1dc49.chunk.js",
-  "static/js/1.81d1dc49.chunk.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/1.81d1dc49.chunk.js.map",
-  "runtime~main.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/runtime~main.860a5583.js",
-  "runtime~main.js.map": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/js/runtime~main.860a5583.js.map",
-  "static/media/got.png": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/media/got.a3996a4a.png",
-  "static/media/backgroundgot.jpg": "/React-Hooks-IlikeToMovieMovies/got/homepage/static/media/backgroundgot.79d6bb2c.jpg",
-  "index.html": "/React-Hooks-IlikeToMovieMovies/got/homepage/index.html",
-  "precache-manifest.ece825658d7c9f59d81fb9c2b7524b6e.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/precache-manifest.ece825658d7c9f59d81fb9c2b7524b6e.js",
-  "service-worker.js": "/React-Hooks-IlikeToMovieMovies/got/homepage/service-worker.js"
+  "main.js": "/React-Hooks-IlikeToMovieMovies/static/js/main.f9269653.chunk.js",
+  "main.js.map": "/React-Hooks-IlikeToMovieMovies/static/js/main.f9269653.chunk.js.map",
+  "static/js/1.628ee164.chunk.js": "/React-Hooks-IlikeToMovieMovies/static/js/1.628ee164.chunk.js",
+  "static/js/1.628ee164.chunk.js.map": "/React-Hooks-IlikeToMovieMovies/static/js/1.628ee164.chunk.js.map",
+  "runtime~main.js": "/React-Hooks-IlikeToMovieMovies/static/js/runtime~main.229f4e7d.js",
+  "runtime~main.js.map": "/React-Hooks-IlikeToMovieMovies/static/js/runtime~main.229f4e7d.js.map",
+  "static/media/got.png": "/React-Hooks-IlikeToMovieMovies/static/media/got.a3996a4a.png",
+  "static/media/backgroundgot.jpg": "/React-Hooks-IlikeToMovieMovies/static/media/backgroundgot.79d6bb2c.jpg",
+  "index.html": "/React-Hooks-IlikeToMovieMovies/index.html",
+  "precache-manifest.8c7dfdc565bcd89ba228ddcb6813a8e2.js": "/React-Hooks-IlikeToMovieMovies/precache-manifest.8c7dfdc565bcd89ba228ddcb6813a8e2.js",
+  "service-worker.js": "/React-Hooks-IlikeToMovieMovies/service-worker.js"
 }
