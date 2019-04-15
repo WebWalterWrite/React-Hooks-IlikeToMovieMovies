@@ -2,9 +2,7 @@ import styled from 'styled-components/macro';
 import media from '../../utils/responsive';
 
 export const Section = styled.section`
-  
-    justify-content:space-between;
-    height:100vh;
+      height:100vh;
     >div{
         display:flex;
         align-items:center;
@@ -15,8 +13,8 @@ export const Section = styled.section`
         transform: translateY(-50%);
     }
     ${media.phone`
-        display: block;
         >div{
+            display: block;
             text-align: center;
             position: absolute;
             width: 100%;

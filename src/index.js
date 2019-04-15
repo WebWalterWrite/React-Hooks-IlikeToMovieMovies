@@ -24,14 +24,20 @@ const GlobalStyle = createGlobalStyle`
         padding:2vh;
         font-family: "GameofThrones";
     }
-    html, body{
-        height:100%;
+    body{
+        height: 100vh;
         width:100%;
-        background:url(${backgroundgot}) no-repeat;
-        background-size:cover;
-        background-attachment:fixed;
-        background-position:center;
-        scroll-behavior: smooth;
+    }
+    body:after{
+        content:"";
+        position:fixed; 
+        top:0;
+        height:100vh;
+        left:0;
+        right:0;
+        z-index:-1; 
+        background: url(${backgroundgot}) center center;
+        background-size: cover;
     }
 
     p{
