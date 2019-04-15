@@ -6,7 +6,6 @@ import AllRoutes from './routes';
 
 // import components
 import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
 
 
 const Layout = ({ children }) => {
@@ -16,7 +15,6 @@ const Layout = ({ children }) => {
         <main>
           { children }
         </main>
-      <Footer />
     </Fragment>
 )};
 
