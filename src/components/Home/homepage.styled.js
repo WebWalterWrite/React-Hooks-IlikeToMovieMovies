@@ -2,13 +2,20 @@ import styled from 'styled-components/macro';
 import media from '../../utils/responsive';
 
 export const Section = styled.section`
-    display:flex;
-    align-items:center;
+  
     justify-content:space-between;
     height:100vh;
+    >div{
+        display:flex;
+        align-items:center;
+        justify-content:space-around;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     ${media.phone`
         display: block;
-    
         >div{
             text-align: center;
             position: absolute;
