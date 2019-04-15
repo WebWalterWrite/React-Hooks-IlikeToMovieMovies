@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import media from '../../utils/responsive';
 
 export const Container = styled.section`

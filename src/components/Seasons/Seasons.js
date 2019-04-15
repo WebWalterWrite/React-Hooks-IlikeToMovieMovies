@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, lazy } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom'
 // Import api
 import { getAllSeasons } from "../../utils/api";
@@ -6,15 +6,13 @@ import { getAllSeasons } from "../../utils/api";
 // Import styles
 import { Container } from './seasons.styled';
 
+// import component
 import Loader from '../../utils/loader';
 
-const Seasons = () => {
-
+const Seasons = memo(({location}) => {
     const [seasons, setSeasons] = useState([]);
 
-	// Warning: useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect.
-	
-    useEffect( ()=>{
+    useEffect(()=>{
         ( 
             async () => {
                 const {seasons} = await getAllSeasons();
@@ -22,7 +20,6 @@ const Seasons = () => {
             })();
         },[]
         )
-   
     const saisons = seasons.filter(elem => elem.name !== 'Specials')
 
     return(
@@ -32,7 +29,10 @@ const Seasons = () => {
         {saisons.map(({poster_path, name, season_number},k) =>(
             <div key={k}>
             <h2>{name}</h2>
-            <Link to={`/got/saison/${season_number}`}><img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt="pochette saison"/>
+            <Link to={{
+                pathname:`/got/saison/${season_number}`,
+                state: location.pathname
+                }}><img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt="pochette saison"/>
             </Link>
             </div>
             )
@@ -41,6 +41,6 @@ const Seasons = () => {
        : <Loader/>}
        </div>
     )
-}
+})
 
 export default Seasons;

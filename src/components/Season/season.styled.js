@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import media from "../../utils/responsive";
 
 export const Container = styled.section`
@@ -27,6 +27,7 @@ export const Overview = styled.div`
 		padding:0;
 		h1{
 			font-size:1.5em;
+			font-family: "GameofThrones";
 		}
 		${media.phone`
 			width:25%;
@@ -58,6 +59,7 @@ export const Episode = styled.div`
 		text-align:center;
 		font-weight:bold;
 		padding:1%;
+		font-family: "GameofThrones";
 	}
 	${media.desktop`
         div{display:flex;}
@@ -70,14 +72,21 @@ export const Episode = styled.div`
 `;
 
 export const Img = styled.div`
+  overflow: hidden;
 	height: 100%;
   width: 100%;
   text-align: center;
 	border-top: #FECC01 solid;
+	:hover img{
+		transform: scale(1.2);
+	}
+
   img{
     width:100%;
     height:100%;
-  }
+		transition: transform 0.3s ease-in-out;
+		}
+	}
 	${media.phone`
     width:100%;
   `}
@@ -91,6 +100,7 @@ export const Img = styled.div`
 		height: 100%;
 		width: 100%;
 		background-color: rgba(0, 0, 0, 0.3);
+
 		${media.phone`
 			font-size:2em;
 		`}
@@ -117,7 +127,6 @@ export const Img = styled.div`
 			${media.phone`
 			width:30%;
 			font-size:1.5em;
-
 			`}
 		}
 

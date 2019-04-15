@@ -1,5 +1,5 @@
-import styled, {keyframes} from 'styled-components';
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import styled, {keyframes} from 'styled-components/macro';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const H1 = styled.h1`
     color:white;
     font-size: 2em;

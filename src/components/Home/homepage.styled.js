@@ -1,10 +1,23 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
+import media from '../../utils/responsive';
 
 export const Section = styled.section`
     display:flex;
     align-items:center;
     justify-content:space-between;
     height:100vh;
+    ${media.phone`
+        display: block;
+    
+        >div{
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            line-height: 2.5;
+            transform: translateY(-50%);
+        }
+    `}
     a{
         padding:10px;
         font-size:1.5em;

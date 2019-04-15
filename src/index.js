@@ -7,14 +7,22 @@ import * as serviceWorker from './serviceWorker';
 import backgroundgot from './assets/img/backgroundgot.jpg';
 
 const GlobalStyle = createGlobalStyle`
+    @font-face {
+    font-family: 'GameofThrones';
+    src:
+        local('GameofThrones'),
+        url('../assets/fonts/GameofThrones') format('ttf'),
+    }
 
-    *{
+    *{  
         padding:0;
         margin:0;
         box-sizing: border-box;
     }
+
     header{
         padding:2vh;
+        font-family: "GameofThrones";
     }
     html, body{
         height:100%;
@@ -25,10 +33,7 @@ const GlobalStyle = createGlobalStyle`
         background-position:center;
         scroll-behavior: smooth;
     }
-    h1, h2{
-        font-family: 'Cormorant Garamond', serif;
-    }
- 
+
     p{
         font-size:1.5em;
         line-height:1.5;

@@ -3,6 +3,7 @@ import Seasons from "./components/Seasons/Seasons";
 import Season from "./components/Season/Season";
 import Epd from "./components/Episode/Epd";
 import Characters from './components/Characters/Characters';
+import NotFound from './utils/NotFound';
 
 const AllRoutes = [
 	{
@@ -18,12 +19,15 @@ const AllRoutes = [
 		component: Season
 	},
 	{
-		path: "/got/saison/:saison/episode/:episode/:name",
+		path: "/got/saison/:saison/episode/:episode",
 		component: Epd
 	},
 	{
 		path:'/got/characters',
 		component:Characters
+	},
+	{
+		component: NotFound 
 	}
 ];
 
