@@ -1,23 +1,21 @@
-import React, { useEffect, useState} from "react";
-import { faChevronLeft, faChevronRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from "react";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 // Import component
 import People from "../Common/People";
+import Back from "../Common/Back";
+import NotFound from '../../utils/NotFound';
 
 // Import fecth API
 import { getEpisode, getImgEpisode } from "../../utils/api";
 
 // Import style
 import { Container, Img, Icon, Svg } from "./epd.styled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-
-const Epd = ({ match,location}) => {
-    const prevUrl = location.state;
-    const season = match.params.saison;
-
+const Epd = ({ match }) => {
+	const season = match.params.saison;
+	
 	// Récuprer paramètres URl
 	const num = match.params.saison;
 	const episode = match.params.episode;
@@ -39,8 +37,8 @@ const Epd = ({ match,location}) => {
 	}, []);
 
 	// Desctruring des données
-	const {
-		data: { name, overview } = {},
+	let {
+		data: { name, overview, error } = {},
 		data: { guest_stars } = [],
 		images = []
 	} = episod;
@@ -56,24 +54,21 @@ const Epd = ({ match,location}) => {
 	const moveRight = () => {
 		if (index < images.length) return (setIndex(index + 1), setPos(pos - 500));
 	};
-
+	
 	return (
+		<Fragment>
+		{error ? <NotFound/> :
 		<Container>
-            <div>
-            	<Link to={prevUrl}>
-				<FontAwesomeIcon icon={faArrowLeft} size="1x"/>
-			 	 <span>Saison {num}</span>
-				</Link>
-            </div>
+				<Back  data={{link:`/got/saison/${num}`, content:`Saison ${num}`}}/>
 			<h1>{name}</h1>
 			<Img slide={pos}>
 				{images.map(({ file_path }, k) => (
-				<img
+					<img
 					key={k}
 					src={`https://image.tmdb.org/t/p/w500/${file_path}`}
 					alt={`illustration de l'épisode "${name}"`}
-				/>
-				))}
+					/>
+					))}
 			</Img>
 
 			<Icon>
@@ -83,7 +78,7 @@ const Epd = ({ match,location}) => {
 						icon={faChevronLeft}
 						size="2x"
 						visible={index === 1 ? "hidden" : "visible"}
-					/>
+						/>
 				</div>
 				<span>{index}/{images.length}</span>
 				<div>
@@ -92,13 +87,15 @@ const Epd = ({ match,location}) => {
 						icon={faChevronRight}
 						size="2x"
 						visible={index === images.length ? "hidden" : "visible"}
-					/>
+						/>
 				</div>
 			</Icon>
 			<p>{overview}</p>
 			<p>Casting Episode</p>
 			<People data={guest_stars} />
 		</Container>
+		}	
+	</Fragment>
 	)	
 };
 
