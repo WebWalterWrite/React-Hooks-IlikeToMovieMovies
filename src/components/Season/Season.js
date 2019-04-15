@@ -1,6 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Import component
+import NotFound from '../../utils/NotFound';
+import Back from '../Common/Back';
+
 // Import fetch api
 import { getSeason } from "../../utils/api";
 
@@ -10,23 +14,28 @@ import { Container, Overview, Episode, Img } from "./season.styled";
 // Import spinner
 import Loader from "../../utils/loader";
 
-const Season = props => {
-	const saison = props.match.params.id; // id saison
+const Season = ({match, location}) => {
+	
+	const saison = match.params.id; // id saison
 	const [episode, setEpisode] = useState([]);
-
-	useEffect(() => {
+	
+	useEffect(() => {	
 		(async () => {
 			const result = await getSeason(saison);
+			
 			setEpisode(result);
 		})();
 	}, []);
 
-	const { episodes, overview } = episode;
+	const { episodes, overview, error } = episode;
 
 	return (
 		<Fragment>
-			{episodes ? (
+			
+			{error ?  <NotFound/> : 
+			 episodes ? (
 				<Container>
+					<Back data={{link:'/got/seasons', content:`Retour Saisons`}} />
 				<Overview>
 					<div>
 						<p>GameOfThrones</p>
@@ -49,10 +58,8 @@ const Season = props => {
 							/>
 						<div>
 						<Link to={{ 
-							pathname:`/got/saison/${saison}/episode/${ep}/${name
-												.replace(/\W+/g, "-")
-												.toLowerCase()}`,
-												state: props.location.pathname
+							pathname:`/got/saison/${saison}/episode/${ep}`,
+												state: location.pathname
 									}}>Decouvrir
 							</Link>
 						</div>
