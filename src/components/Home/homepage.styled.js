@@ -27,7 +27,7 @@ export const Section = styled.section`
         padding:10px;
         font-size:1.5em;
         text-decoration:none;
-        color:white;
+        color:#FECC01;
         letter-spacing:.2em;
         text-shadow:-5px -2px 9px rgba(244,244,244,0.8);
     }
