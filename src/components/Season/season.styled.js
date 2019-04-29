@@ -19,6 +19,7 @@ export const Container = styled.section`
 `;
 
 export const Overview = styled.div`
+	 min-width:100%;
 	>div{
 		background-color:#FECC01;
 		color:#000000;
