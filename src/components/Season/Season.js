@@ -28,12 +28,15 @@ const Season = ({match, location}) => {
 	}, []);
 
 	const { episodes, overview, error } = episode;
-
+	
+	// Récupérer les épisodes avec descriptif 
+	const epi = episodes && episodes.filter(({overview}) => overview !== "");
+	
 	return (
 		<Fragment>
 			
 			{error ?  <NotFound/> : 
-			 episodes ? (
+			 epi ? (
 				<Container>
 					<Back data={{link:'/got/seasons', content:`Retour Saisons`}} />
 				<Overview>
@@ -41,12 +44,12 @@ const Season = ({match, location}) => {
 						<p>GameOfThrones</p>
 						<h1>Saison {saison}</h1>
 					</div>
-					<p>{overview}</p>
+					<p>{overview ? overview : "la description n'est pas encore disponible mais elle ne saurait tarder... "}</p>
 						
 				</Overview>
 
-				{episodes &&
-				episodes.map(
+				{epi &&
+				epi.map(
 				({ name, still_path, episode_number: ep }, k) => (
 					<Fragment key={k}>
 						<Episode>
