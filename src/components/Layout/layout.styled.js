@@ -17,10 +17,10 @@ const Btn = keyframes`
 
 export const Back = styled(FontAwesomeIcon)`
     position:fixed;
-    bottom:3%;
+    bottom:4%;
     z-index:100000;
-    right:1%;
-    color:rgba(254, 204, 1, 0.7);
+    right:3%;
+    color:rgba(254, 204, 1, 0.8);
     transition: all 1s ease-in-out;
     animation: ${Btn} .5s linear;
     transition:all .2s ease-in-out;
