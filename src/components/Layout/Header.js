@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import { animateScroll as scroll } from 'react-scroll';
 import { Link } from 'react-router-dom';
 
 // import icon
@@ -17,11 +18,10 @@ const Header = () => {
     : setPos({isHidden:true})
   }
   // Retour Haut de page
-  const ClickToBack =(e)=> {
-      window.scrollTo({
-        top:0,
-        behavior:'smooth'
-      })  
+  const ClickToBack =()=> {
+    scroll.scrollToTop({
+      smooth: "easeOutQuad",
+    });
   }
 
   // Ecoutér le scroll
