@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
+import media from './utils/responsive'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -27,10 +28,6 @@ const GlobalStyle = createGlobalStyle`
         font-family: "GameofThrones";
         text-align:center;
         background-color: #000000;
-        position:fixed;
-        top:0;
-        z-index:999;
-        width:100%;
      
     }
     body{
@@ -49,7 +46,11 @@ const GlobalStyle = createGlobalStyle`
         background-size: cover;
     }
     main{
-        margin-top:20%;
+        width: 95%;
+        margin: 0 auto;
+        ${media.phone`
+            width:100%;
+        `}
     }
     p{
         font-size:1.5em;

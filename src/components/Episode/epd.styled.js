@@ -6,6 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Container = styled.section`
     background-color:#000000;
     color: #ffffff;
+	border: solid 1px #FECC01;
+	padding:1em;
+	${media.phone`
+		border:none;
+	`}
 	h1{
 		text-align:center;
 	}
