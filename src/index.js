@@ -22,7 +22,16 @@ const GlobalStyle = createGlobalStyle`
 
     header{
         padding:2vh;
+        margin-bottom:2em;
+        border-bottom:solid 2px rgb(254, 204, 1);
         font-family: "GameofThrones";
+        text-align:center;
+        background-color: #000000;
+        position:fixed;
+        top:0;
+        z-index:999;
+        width:100%;
+     
     }
     body{
         height: 100vh;
