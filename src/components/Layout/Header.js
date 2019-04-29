@@ -32,7 +32,7 @@ const Header = () => {
         {!pos.isHidden && <Back onClick={ClickToBack} icon={faArrowCircleUp} size="3x"/>}
       <header>
       <H1>
-        <Link to="/">OH MY GOT</Link>
+        <Link to="/">OH My GOT</Link>
       </H1>
       </header>
     </Fragment>
