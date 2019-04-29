@@ -48,7 +48,9 @@ const GlobalStyle = createGlobalStyle`
         background: url(${backgroundgot}) center center;
         background-size: cover;
     }
-
+    main{
+        margin-top:20%;
+    }
     p{
         font-size:1.5em;
         line-height:1.5;
